@@ -28,7 +28,7 @@ const orderSchema = new Schema(
 
         address: {
             type: String,
-            required: [true, 'Set adress for contact'],
+            required: [true, 'Set address for contact'],
         },
 
         shop: {
@@ -37,9 +37,24 @@ const orderSchema = new Schema(
             required: [true, 'Shop is required'],
         },
 
-        products: {
-            type: Array,
-            required: [true, 'Products not found'],
+        products: [
+            {
+                _id: false,
+                product: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Product',
+                    required: [true, 'Product ID is required'],
+                },
+                quantity: {
+                    type: Number,
+                    required: [true, 'Quantity is required'],
+                },
+            },
+        ],
+
+        price: {
+            type: Number,
+            required: [true, 'Total is required'],
         },
     },
     { versionKey: false, timestamps: true },
@@ -51,7 +66,15 @@ const addOrderSchema = Joi.object({
     email: Joi.string().min(3).max(30).pattern(emailRegExp).required(),
     address: Joi.string().required(),
     shop: Joi.string().required(),
-    products: Joi.array().required(),
+    products: Joi.array()
+        .items(
+            Joi.object({
+                product: Joi.string().required(),
+                quantity: Joi.number().integer().min(1).required(),
+            }),
+        )
+        .required(),
+    price: Joi.number().required(),
 });
 
 orderSchema.post('save', handleMongooseError);

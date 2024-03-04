@@ -2,10 +2,15 @@ const { Order } = require('../models');
 
 class OrderService {
     async addOrder(order) {
-        console.log('order:', order);
         const result = await Order.create(order);
-        console.log('result:', result);
         return;
+    }
+    async getOrders(query) {
+        const orders = await Order.find(query).populate({
+            path: 'products.product',
+            model: 'Product',
+        });
+        return orders;
     }
 }
 
