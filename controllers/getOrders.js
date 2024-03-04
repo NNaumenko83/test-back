@@ -13,6 +13,7 @@ const getOrders = async (req, res) => {
         query.phone = phone;
     }
 
+    console.log('query:', query);
     const orders = await orderService.getOrders(query);
     if (orders.length === 0) {
         return res.status(404).json({ message: 'Orders not found' });
