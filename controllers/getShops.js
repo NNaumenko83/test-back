@@ -1,14 +1,10 @@
 const { ctrlWrapper } = require('../helpers');
-
-const shops = [
-    { name: 'McDonalds', id: 1, address: 'Kyiv' },
-    { name: 'KFC', id: 2, address: 'Kyiv' },
-    { name: 'Murakami', id: 3, address: 'Kyiv' },
-];
+const shopService = require('../service/shop-service');
 
 const getShops = async (req, res) => {
-console.log('getShops:')
-
+    console.log('getShops:');
+    const shops = await shopService.getShops();
+    console.log('shops:', shops);
 
     res.status(200).json(shops);
 };
