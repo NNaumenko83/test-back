@@ -8,7 +8,7 @@ const SchemaShops = new Schema(
             unique: true,
             required: [true, 'DB: Name is required'],
         },
-        location: {
+        address: {
             type: String,
             required: [true, 'DB: location is required'],
         },

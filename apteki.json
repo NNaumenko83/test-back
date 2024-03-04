@@ -1,5 +1,17 @@
 [
-    { "name": "Apteka ANTs", "id": 1, "address": "Kharkivske Hwy, 152а, Kyiv, 02091" },
-    { "name": "Apteka Kopiyka", "id": 2, "address": "Trostianetska St, 47, Kyiv, 02175" },
-    { "name": "FARMACIA", "id": 3, "address": "Arkhitektora Verbytskoho St, 1, Kyiv, 02091" }
+    {
+        "name": "Apteka ANTs",
+        "id": 1,
+        "address": "Kharkivske Hwy, 152а, Kyiv, 02091"
+    },
+    {
+        "name": "Apteka Kopiyka",
+        "id": 2,
+        "address": "Trostianetska St, 47, Kyiv, 02175"
+    },
+    {
+        "name": "FARMACIA",
+        "id": 3,
+        "address": "Arkhitektora Verbytskoho St, 1, Kyiv, 02091"
+    }
 ]

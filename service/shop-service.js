@@ -6,6 +6,11 @@ class ShopsService {
 
         return shops;
     }
+    async getShopById(id) {
+        const shop = await Shop.findById(id);
+
+        return shop;
+    }
 }
 
 module.exports = new ShopsService();
