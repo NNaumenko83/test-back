@@ -1,5 +1,5 @@
 const Shop = require('./shop-model');
 const Product = require('./product-model');
-console.log('Product:', Product);
+const { Order, addOrderSchema } = require('./order-model');
 
-module.exports = { Shop, Product };
+module.exports = { Shop, Product, Order, addOrderSchema };
